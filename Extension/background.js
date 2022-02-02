@@ -1,11 +1,36 @@
-window.bears = {}
-const bears = {}
-chrome.runtime.onMessage.addListener(function(request,sender,sendResponse){
-    window.bears[request.url] = request.count
+chrome.runtime.onMessage.addListener( data => {
+	if ( data.type === 'notification' ) {
+		notify( data.message );
+	}
+});
 
-})
+chrome.runtime.onInstalled.addListener( () => {
+	chrome.contextMenus.create({
+		id: 'notify',
+		title: "Notify!: %s", 
+		contexts:[ "selection" ]
+	});
+});
 
-chrome.browserAction.onClicked.addListener(function(tab){
-    chrome.tabes.create({url: 'popup.html'})
+chrome.contextMenus.onClicked.addListener( ( info, tab ) => {
+	if ( 'notify' === info.menuItemId ) {
+		notify( info.selectionText );
+	}
+} );
 
-})
+const notify = message => {
+	chrome.storage.local.get( ['notifyCount'], data => {
+		let value = data.notifyCount || 0;
+		chrome.storage.local.set({ 'notifyCount': Number( value ) + 1 });
+	} );
+
+	return chrome.notifications.create(
+		'',
+		{
+			type: 'basic',
+			title: 'Notification',
+			message: message || 'Did you hear about the man who got cooled to absolute zero?… He’s 0K now.',
+			iconUrl: 'image/n128.png',
+		}
+	);
+};

@@ -1,16 +1,34 @@
 <!DOCTYPE html>
-<html lang="en">
-<script src="popup.js" charset="utf-8"></script>
-<link rel="stylesheet" type="text/css" href="style.css">
-<head>
-    <meta charset="UTF-8">
-    <title>Document</title>
-</head>
-<body>
-    <button>Count Bears</button>
-    
-</body>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title> Zyzyz </title>
+		<link rel="stylesheet" type="text/css" href="popup.css" title="style">	
+	</head>
+	<body>
 
+		<div id="wrapper">
 
+			<div id="header">
+				<h1>Notification</h1>
+			</div>
 
+			<div id="notify-containers">
+
+				<div class="notify-form">
+					<textarea name="text" id="notify-text" placeholder="Type Here"></textarea>
+				</div>
+
+				<div class=notify-buttons>
+					<p>Notification Counts: <span id="notify-count"></span></p>
+					<button class="button" id="notify-reset">Reset</button>
+					<button class="button primary" id="notify-button">Notify</button>
+				</div>
+
+			</div>
+
+		</div>
+
+	</body>
+	<script src="popup.js"></script>	
 </html>
