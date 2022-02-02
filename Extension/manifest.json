@@ -1,6 +1,6 @@
 {
     "name": "Extension_YizhiZhou",
-    "version": "2.0",
+    "version": "3.0",
     "manifest_version": 2,
     "content_scripts":[
         {
@@ -8,9 +8,22 @@
             "js": ["content.js"]
         }
     ],
+
+    "icons": {
+        "16": "image/i1.png",
+        "32": "image/i2.png",
+        "48": "image/i3.png"
+      },
+
     "browser_action": {
         "default_popup": "popup.html", 
-        "default_title": "Bear"
+        "default_title": "Bear",
+
+        "default_icon": {
+            "16": "image/i1.png",
+            "32": "image/i2.png",
+            "48": "image/i3.png"
+          }
     },
     "background":{
         "scripts": ["background.js"]
