@@ -8,6 +8,7 @@
 - A message box that could output your message as a notification that occurs at the right bottom of the screen.
 - A joke is hidden somewhere! (Waiting for you to discover）
 - Webpage decoration
+- Clear interface
 
 # Reference
 https://blog.csdn.net/haoaiqian/article/details/86749728?
